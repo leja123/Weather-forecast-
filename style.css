@@ -1,0 +1,9 @@
+body {
+    background-image: linear-gradient(to right, rgb(56, 56, 241), rgb(67, 204, 67));
+    color: white;
+    text-align: center;
+}
+
+.box {
+    background-color: gray;
+}
