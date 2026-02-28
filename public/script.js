@@ -6,6 +6,7 @@ async function loadWeather(city) {
         console.log(data);
 
         if (data.main) {
+            document.getElementById("cityName").innerHTML = document.getElementById("searchedCity").value;
             document.getElementById("weatherData").innerHTML =
                 "Temperature: " + data.main.temp +
                 "<br>Description: " + data.weather[0].description;
