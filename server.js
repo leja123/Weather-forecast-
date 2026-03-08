@@ -10,7 +10,6 @@ app.get("/weather", async (req, res) => {
     const city = req.query.city;
 
     try {
-        // Get latitude & longitude
         const geoResponse = await fetch(
             `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${API_KEY}`
         );
@@ -24,14 +23,22 @@ app.get("/weather", async (req, res) => {
         const lat = geoData[0].lat;
         const lon = geoData[0].lon;
 
-        // Get weather using lat & lon
         const weatherResponse = await fetch(
             `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${API_KEY}`
         );
 
         const weatherData = await weatherResponse.json();
 
-        res.json(weatherData);
+        const forecastResponse = await fetch(
+            `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=metric&appid=${API_KEY}`
+        );
+
+        const forecastData = await forecastResponse.json();
+
+        res.json({
+            current: weatherData,
+            forecast: forecastData
+        });
 
     } catch (error) {
         console.error(error);
@@ -39,7 +46,7 @@ app.get("/weather", async (req, res) => {
     }
 });
 
-// serve static files (your HTML, script.js)
+// for static files 
 app.use(express.static("public"));
 
 app.listen(3000, () => {

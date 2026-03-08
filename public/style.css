@@ -40,3 +40,14 @@ h1 {
 .results {
     color: black;
 }
+
+#forecastRow {
+    display: flex;
+    gap: 20px;
+    margin-top: 10px;
+}
+
+.forecastCard {
+    text-align: center;
+    font-size: 14px;
+}
