@@ -13,11 +13,11 @@ async function loadWeather(city) {
 
             // CURRENT WEATHER
             document.getElementById("cityName").innerHTML =
-                "Results for: " + document.getElementById("searchedCity").value;
+                document.getElementById("searchedCity").value;
 
             document.getElementById("weatherData").innerHTML =
-                "Temperature: " + current.main.temp +
-                "<br>Description: " + current.weather[0].description;
+                current.main.temp + " °C"+
+                "<br>" + current.weather[0].description;
 
             const iconContainer = document.getElementById('weatherIcon');
             iconContainer.innerHTML = "";
