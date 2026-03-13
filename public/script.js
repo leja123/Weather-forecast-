@@ -16,7 +16,7 @@ async function loadWeather(city) {
                 document.getElementById("searchedCity").value;
 
             document.getElementById("weatherData").innerHTML =
-                current.main.temp + " °C"+
+                Math.round(current.main.temp) + " °C"+
                 "<br>" + current.weather[0].description;
 
             const iconContainer = document.getElementById('weatherIcon');
@@ -39,7 +39,7 @@ async function loadWeather(city) {
                 const item = forecast.list[i];
 
                 const date = new Date(item.dt * 1000).toLocaleDateString();
-                const temp = item.main.temp;
+                const temp = Math.round(item.main.temp);
                 const forecastIconID = item.weather[0].icon;
 
                 const card = document.createElement("div");
