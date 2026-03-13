@@ -49,7 +49,7 @@ async function loadWeather(city) {
                 icon.src = `https://openweathermap.org/img/wn/${forecastIconID}.png`;
 
                 const text = document.createElement("p");
-                text.innerHTML = `${date}<br>${temp} °C`;
+                text.innerHTML = `${temp} °C<br>${date} `;
 
                 card.appendChild(icon);
                 card.appendChild(text);
